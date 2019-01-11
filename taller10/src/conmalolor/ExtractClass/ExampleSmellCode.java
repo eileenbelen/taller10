@@ -18,25 +18,8 @@ public class ExampleSmellCode {
     public List<EmployeeSmellCode> empleados;
     
     public void MostrarInformacion(ClienteRefactor cliente){
+        validarInformacion(cliente.getNombre(),cliente.getApellido,cliente.getCedula);
         
-        if(cliente.getNombre().equals("") && cliente.getNombre().length()> 16){
-                System.out.println("ingreso de nombre incorrecto");
-        }else{
-            System.out.println("ingreso de nombre correcto");
-
-        }
-        if(cliente.getApellido().equals("") && cliente.getApellido().length()> 16){
-            System.out.println("ingreso de apellido incorrecto");
-        }else{
-            System.out.println("ingreso de apellido correcto");
-
-        }
-        if(!cliente.Cedula.equals("") && cliente.Cedula.length()< 10){
-            System.out.println("ingreso de cedula incorrecto");
-        }else{
-            System.out.println("ingreso de cedula correcto");
-
-        }
         System.out.println("Nombre: " + cliente.getNombre() + ", Apellido: " + cliente.getApellido() + ", con numero de cedula: " + cliente.Cedula );
         
     }
@@ -52,19 +35,19 @@ public class ExampleSmellCode {
     
     public void validarInformacion(String Nombre, String Apellido, String Cedula ){
         
-        if(Nombre.equals("") && Nombre.length()> 16){
+        if(esNombrevalido(Nombre)){
             System.out.println("ingreso de nombre incorrecto");
         }else{
             System.out.println("ingreso de nombre correcto");
             
         }
-        if(Apellido.equals("") && Apellido.length()> 16){
+        if(esApellidovalido(Apellido)){
             System.out.println("ingreso de apellido incorrecto");
         }else{
             System.out.println("ingreso de apellido correcto");
             
         }
-        if(!Cedula.equals("") && Cedula.length()< 10){
+        if(esCedulavalida(Cedula)){
             System.out.println("ingreso de cedula incorrecto");
         }else{
             System.out.println("ingreso de cedula correcto");
@@ -72,6 +55,19 @@ public class ExampleSmellCode {
         }
         
     }
+    
+    public boolean esNombrevalido(String nombre){
+         return !nombre.equals("") && nombre.length()> 16;
+    }
+    
+    public boolean esApellidovalido(String apellido){
+         return !apellido.equals("") && apellido.length()> 16;
+    }
+    
+    public boolean esCedulavalida(String cedula){
+         return !cedula.equals("") && cedula.length()< 10;
+    }
+
     
     
 }
